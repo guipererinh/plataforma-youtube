@@ -14,6 +14,3 @@ if(move){
 }
 
 hspd = lengthdir_x(move_spd,move_dir);
-
-x+=hspd;
-y+=vspd;
