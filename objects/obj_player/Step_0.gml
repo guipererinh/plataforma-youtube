@@ -1,5 +1,6 @@
 var key_left = keyboard_check(vk_left);
 var key_right = keyboard_check(vk_right);
+var key_jump = keyboard_check_pressed(vk_up);
 
 var move = key_right - key_left != 0;
 
@@ -14,3 +15,17 @@ if(move){
 }
 
 hspd = lengthdir_x(move_spd,move_dir);
+
+var ground = place_meeting(x,y+1,obj_wall);
+
+if(ground){
+	coyote_time = coyote_time_max;	
+}else{
+	coyote_time--;	
+}
+
+if(key_jump and coyote_time > 0){
+	coyote_time = 0;
+	vspd = 0;
+	vspd-=jump_height;
+}
