@@ -17,13 +17,15 @@ function player_state_free(){
 		move_spd = approach(move_spd,0,dcc);	
 	}
 
-	hspd = lengthdir_x(move_spd,move_dir);
+	can_move = approach(can_move,0,.5);
+	if(can_move <= 0) hspd = lengthdir_x(move_spd,move_dir);
 
 	if(hspd != 0){
 		x_scale = sign(hspd);
 	}
 
 	var ground = place_meeting(x,y+1,obj_wall);
+	var wall = place_meeting(x + 1,y,obj_wall) or place_meeting(x - 1,y,obj_wall);
 
 	if(ground){
 		coyote_time = coyote_time_max;	
@@ -41,4 +43,19 @@ function player_state_free(){
 		vspd = 0;
 		vspd-=jump_height;
 	}	
+	
+	if(wall and !ground){
+		if(vspd > 1){
+			sprite_index = spr_player_wall;
+			vspd = 1;	
+		}
+		if(key_jump){
+			coyote_time = 0;
+			vspd = 0;
+			vspd-=jump_height;
+			can_move = 5;
+			hspd-=4 * x_scale;
+		}
+	}
+	
 }

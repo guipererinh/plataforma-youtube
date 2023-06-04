@@ -14,6 +14,7 @@
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":1,},
     {"id":{"name":"obj_wall_move_horizontal","path":"objects/obj_wall_move_horizontal/obj_wall_move_horizontal.yy",},"order":5,},
     {"id":{"name":"obj_slope_right","path":"objects/obj_slope_right/obj_slope_right.yy",},"order":3,},
+    {"id":{"name":"spr_player_wall","path":"sprites/spr_player_wall/spr_player_wall.yy",},"order":9,},
     {"id":{"name":"spr_player_run","path":"sprites/spr_player_run/spr_player_run.yy",},"order":2,},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},"order":0,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":2,},
@@ -68,6 +69,6 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.0.0.19",
+    "IDEVersion": "2022.0.1.31",
   },
 }

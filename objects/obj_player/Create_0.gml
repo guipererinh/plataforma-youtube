@@ -4,6 +4,7 @@ vspd_min = -7;
 vspd_max = 7;
 grv = 0.3;
 
+can_move = 0;
 move_dir = 0;
 move_spd = 0;
 move_spd_max = 3.0;
