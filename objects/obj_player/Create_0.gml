@@ -15,6 +15,12 @@ jump_height = 6;
 coyote_time_max = 10;
 coyote_time = 0;
 
+dash = true;
+dash_delay = 30;
+dash_force = 8;
+dash_time = 0;
+dash_distance = 10;
+
 x_scale = 1;
 y_scale = 1;
 

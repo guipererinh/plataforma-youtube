@@ -2,6 +2,7 @@ function player_state_free(){
 	var key_left = keyboard_check(vk_left);
 	var key_right = keyboard_check(vk_right);
 	var key_jump = keyboard_check_pressed(vk_up);
+	var key_dash = keyboard_check_pressed(ord("Z"));
 
 	var move = key_right - key_left != 0;
 
@@ -58,4 +59,22 @@ function player_state_free(){
 		}
 	}
 	
+	if(key_dash and dash){
+		hspd = 0;
+		vspd = 0
+		dash_time = 0;
+		dash = false;
+		alarm[0] = dash_delay;
+		state = player_state_dash;
+	}
+	
+}
+
+function player_state_dash(){
+	//Estado de dash
+	hspd = lengthdir_x(dash_force,move_dir);
+	dash_time = approach(dash_time,dash_distance,1);
+	if(dash_time >= dash_distance){
+		state = player_state_free;
+	}
 }
