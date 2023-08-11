@@ -29,6 +29,7 @@ function player_state_free(){
 	var wall = place_meeting(x + 1,y,obj_wall) or place_meeting(x - 1,y,obj_wall);
 
 	if(ground){
+		jump_count = jump_max;
 		coyote_time = coyote_time_max;	
 	}else{
 		coyote_time--;
@@ -39,7 +40,8 @@ function player_state_free(){
 		}
 	}
 
-	if(key_jump and coyote_time > 0){
+	if(key_jump and coyote_time > 0 || key_jump and jump_count > 0){
+		jump_count--;
 		coyote_time = 0;
 		vspd = 0;
 		vspd-=jump_height;
@@ -47,6 +49,7 @@ function player_state_free(){
 	
 	if(wall and !ground){
 		if(vspd > 1){
+			jump_count = jump_max;
 			sprite_index = spr_player_wall;
 			vspd = 1;	
 		}
