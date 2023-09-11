@@ -6,9 +6,6 @@ function player_state_free(){
 
 	var move = key_right - key_left != 0;
 
-	vspd+=grv;
-	vspd = clamp(vspd,vspd_min,vspd_max);
-
 	if(move){
 		sprite_index = spr_player_run;
 		move_dir = point_direction(0,0,key_right - key_left,0);
