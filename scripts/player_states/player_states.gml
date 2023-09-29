@@ -68,6 +68,16 @@ function player_state_free(){
 		state = player_state_dash;
 	}
 	
+	//Colidindo com o inimigo
+	if(!ground and vspd > 0){
+		var collision_e = instance_place(x,y+1,obj_enemy_parent);
+		if(collision_e){
+			vspd = 0;
+			vspd-=jump_height;
+			instance_destroy(collision_e.id);
+		}
+	}
+	
 }
 
 function player_state_dash(){
