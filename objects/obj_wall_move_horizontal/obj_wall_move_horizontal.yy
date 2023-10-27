@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "map_objs",
+    "path": "folders/Objects/map_objs.yy",
   },
 }

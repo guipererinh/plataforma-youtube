@@ -1,0 +1,1 @@
+global.apple = 0;

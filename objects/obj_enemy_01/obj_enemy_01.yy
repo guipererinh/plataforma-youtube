@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "entities_objs",
+    "path": "folders/Objects/entities_objs.yy",
   },
 }
