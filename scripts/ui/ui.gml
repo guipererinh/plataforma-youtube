@@ -1,0 +1,1 @@
+global.banana = 0;
