@@ -6,6 +6,7 @@ move_spd_max = 3.0;
 acc = 0.3;
 dcc = 0.3;
 
+jump = false;
 jump_max = 2;
 jump_count = jump_max;
 jump_height = 6;

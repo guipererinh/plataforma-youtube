@@ -2,6 +2,7 @@ function player_state_free(){
 	var key_left = keyboard_check(vk_left);
 	var key_right = keyboard_check(vk_right);
 	var key_jump = keyboard_check_pressed(vk_up);
+	var key_jump_down = keyboard_check(vk_up);
 	var key_dash = keyboard_check_pressed(ord("Z"));
 
 	var move = key_right - key_left != 0;
@@ -26,6 +27,7 @@ function player_state_free(){
 	var wall = place_meeting(x + 1,y,obj_wall) or place_meeting(x - 1,y,obj_wall);
 
 	if(ground){
+		jump = false;
 		jump_count = jump_max;
 		coyote_time = coyote_time_max;	
 	}else{
@@ -36,12 +38,19 @@ function player_state_free(){
 			sprite_index = spr_player_fall;
 		}
 	}
+	
+	//Limitando a altura do nosso pulo
+	if(!key_jump_down and vspd < 0 and jump){
+		//limitando a velocidade vertical
+		vspd = max(vspd,-jump_height / 2.3);
+	}
 
 	if(key_jump and coyote_time > 0 || key_jump and jump_count > 0){
 		jump_count--;
 		coyote_time = 0;
 		vspd = 0;
 		vspd-=jump_height;
+		jump = true;
 	}	
 	
 	if(wall and !ground){
@@ -74,6 +83,7 @@ function player_state_free(){
 		if(collision_e){
 			vspd = 0;
 			vspd-=jump_height;
+			jump = false;
 			instance_destroy(collision_e.id);
 		}
 	}
