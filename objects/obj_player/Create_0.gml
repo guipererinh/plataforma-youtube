@@ -19,4 +19,9 @@ dash_force = 8;
 dash_time = 0;
 dash_distance = 10;
 
+damage_dir = 0;
+damage_recoil = 4;
+damage_time = 0;
+damage_distance = 18;
+
 state = player_state_free;

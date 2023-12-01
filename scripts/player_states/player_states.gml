@@ -88,6 +88,15 @@ function player_state_free(){
 		}
 	}
 	
+	//Tomando dano do inimigo
+	var enemy = instance_place(x+hspd,y,obj_enemy_01);
+	
+	if(enemy){
+		hspd = 0;
+		vspd-=5;
+		damage_dir = point_direction(enemy.x,enemy.y,x,y);
+		state = player_state_damage;
+	}
 }
 
 function player_state_dash(){
@@ -95,6 +104,18 @@ function player_state_dash(){
 	hspd = lengthdir_x(dash_force,move_dir);
 	dash_time = approach(dash_time,dash_distance,1);
 	if(dash_time >= dash_distance){
+		state = player_state_free;
+	}
+}
+
+function player_state_damage(){
+	hspd = lengthdir_x(damage_recoil,damage_dir);
+	
+	damage_time = approach(damage_time,damage_distance,1);
+	
+	if(damage_time >= damage_distance){
+		damage_time = 0;
+		hspd = 0;
 		state = player_state_free;
 	}
 }
