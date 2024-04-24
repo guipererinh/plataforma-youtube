@@ -24,4 +24,7 @@ damage_recoil = 4;
 damage_time = 0;
 damage_distance = 18;
 
+life_max = 5;
+life = life_max;
+
 state = player_state_free;

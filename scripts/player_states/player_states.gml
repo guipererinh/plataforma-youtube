@@ -95,6 +95,7 @@ function player_state_free(){
 		hspd = 0;
 		vspd-=5;
 		damage_dir = point_direction(enemy.x,enemy.y,x,y);
+		life-=1;
 		state = player_state_damage;
 	}
 }
